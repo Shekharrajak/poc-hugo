@@ -11,18 +11,7 @@ before_script:
   - chmod +x .docker/scripts/deploy.sh
   - echo ${TRAVIS_REPO_SLUG}
 
-env:
-  global:
-    - TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG}
-    - TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG}
-    - TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
-    - TRAVIS_TAG=${TRAVIS_TAG}
-    - TRAVIS_BRANCH=${TRAVIS_BRANCH}
-    - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
-    - SURGE_TOKEN=${SURGE_TOKEN}
-    - SURGE_LOGIN=${SURGE_LOGIN}
-
 script:
   - docker build -t poc-hugo -f Dockerfile .
   - docker ps -a
-  - docker run poc-hugo
+  - docker run --env TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} --env TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} --env TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST} --env TRAVIS_TAG=${TRAVIS_TAG} --env TRAVIS_BRANCH=${TRAVIS_BRANCH} --env GITHUB_API_TOKEN=${GITHUB_API_TOKEN} --env SURGE_TOKEN=${SURGE_TOKEN} --env SURGE_LOGIN=${SURGE_LOGIN} poc-hugo
