@@ -2,7 +2,11 @@
 
 npm install -g surge
 
-exec set_env.sh
+echo "Deploy script is about to run set_env script."
+sh ./set_env.sh
+echo "Deploy script has just run set_env script."
+
+echo ${TRAVIS_REPO_SLUG}
 
 # Split on "/", ref: http://stackoverflow.com/a/5257398/689223
 REPO_SLUG_ARRAY=${TRAVIS_REPO_SLUG//\// }
