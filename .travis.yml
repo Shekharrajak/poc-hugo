@@ -14,4 +14,10 @@ before_script:
 script:
   - docker build -t poc-hugo -f Dockerfile .
   - docker ps -a
-  - docker run poc-hugo
+  - docker run -e TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
+    TRAVIS_TAG=${TRAVIS_TAG}
+    TRAVIS_BRANCH=${TRAVIS_BRANCH}
+    GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
+    SURGE_TOKEN=${SURGE_TOKEN}
+    SURGE_LOGIN=${SURGE_LOGIN}
+    poc-hugo
