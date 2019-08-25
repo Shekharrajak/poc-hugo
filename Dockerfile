@@ -1,7 +1,8 @@
 FROM mysocialobservations/docker-tdewolff-minify
 ADD . ./app
 WORKDIR /app
-RUN ./docker/scripts/install_hugo.sh
+RUN chmod +x ./docker/scripts/install_hugo.sh
+CMD ["./docker/scripts/install_hugo.sh"]
 
 RUN hugo
 RUN minify --recursive --verbose \
