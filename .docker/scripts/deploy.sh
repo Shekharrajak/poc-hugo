@@ -23,8 +23,12 @@ then
   DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(pr-${TRAVIS_PULL_REQUEST})
 fi
 
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    echo "Not a Pull Request. Skipping surge deployment"
+    exit 0
+fi
 
-DEPLOY_DOMAIN=https://pr-${TRAVIS_PULL_REQUEST}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+DEPLOY_DOMAIN=https://pr-${TRAVIS_PULL_REQUEST}-hugo-.surge.sh
 echo $DEPLOY_DOMAIN
 surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
