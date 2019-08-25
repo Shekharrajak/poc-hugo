@@ -1,6 +1,6 @@
 
 sudo: required
-language: go
+language: node_js
 
 services:
   - docker
@@ -8,6 +8,8 @@ services:
 before_script:
   - chmod +x .docker/scripts/install_hugo.sh
   - chmod +x .docker/scripts/build.sh
+  - chmod ugo+x .docker/scripts/deploy.sh
+  - npm i -g surge
 
 script:
   - docker build -t poc-hugo -f Dockerfile .
