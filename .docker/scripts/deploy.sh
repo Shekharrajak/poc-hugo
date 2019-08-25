@@ -2,6 +2,8 @@
 
 npm install -g surge
 
+exec set_env.sh
+
 # Split on "/", ref: http://stackoverflow.com/a/5257398/689223
 REPO_SLUG_ARRAY=${TRAVIS_REPO_SLUG//\// }
 echo $TRAVIS_REPO_SLUG
