@@ -1,0 +1,17 @@
+
+sudo: required
+language: node_js
+
+services:
+  - docker
+
+before_script:
+  - chmod +x .docker/scripts/install_hugo.sh
+  - chmod +x .docker/scripts/build.sh
+  - chmod +x .docker/scripts/deploy.sh
+  - echo ${TRAVIS_REPO_SLUG}
+
+script:
+  - docker build -t poc-hugo -f Dockerfile .
+  - docker ps -a
+  - docker run --env TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST} --env TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} --env TRAVIS_TAG=${TRAVIS_TAG} --env TRAVIS_BRANCH=${TRAVIS_BRANCH} --env GITHUB_API_TOKEN=${GITHUB_API_TOKEN} --env SURGE_TOKEN=${SURGE_TOKEN} --env SURGE_LOGIN=${SURGE_LOGIN} poc-hugo
