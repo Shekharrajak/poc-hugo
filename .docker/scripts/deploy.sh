@@ -52,7 +52,9 @@ do
   # The length is limited to 253 characters
   # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[\/|\.]+/\-/g'`
+  echo $DEPLOY_SUBDOMAIN
   DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  echo $DEPLOY_DOMAIN
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
   if [ "$TRAVIS_PULL_REQUEST" != "false" ]
   then
