@@ -2,9 +2,8 @@ FROM mysocialobservations/docker-tdewolff-minify
 ADD . ./app
 WORKDIR /app
 CMD [pwd]
-CMD ["./docker/scripts/install_hugo.sh"]
+CMD ["./docker/scripts/install_hugo.sh", "./docker/scripts/build.sh"]
 
-RUN hugo
 RUN minify --recursive --verbose \
         --match=\.*.js$ \
         --type=js \
