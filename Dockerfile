@@ -1,5 +1,5 @@
-FROM mysocialobservations/docker-tdewolff-minify
+FROM alpine
 ADD . ./app
 WORKDIR /app
 CMD [pwd]
-CMD [".docker/scripts/install_hugo.sh", ".docker/scripts/build.sh"]
+CMD ["app/.docker/scripts/install_hugo.sh", "app/.docker/scripts/build.sh"]
