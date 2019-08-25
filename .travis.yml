@@ -13,4 +13,4 @@ before_script:
 script:
   - docker build -t poc-hugo -f Dockerfile .
   - docker ps -a
-  - docker run poc-hugo
+  - docker run --env-file .docker/.env poc-hugo
