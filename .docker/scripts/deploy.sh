@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Split on "/", ref: http://stackoverflow.com/a/5257398/689223
 REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
@@ -7,13 +7,13 @@ REPO_OWNER=${REPO_SLUG_ARRAY[0]}
 echo $REPO_OWNER
 REPO_NAME=${REPO_SLUG_ARRAY[1]}
 echo $REPO_NAME
-DEPLOY_PATH=./dist
+DEPLOY_PATH=./public
 
 
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
+  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(pr-${TRAVIS_PULL_REQUEST})
 elif [ -n "${TRAVIS_TAG// }" ] #TAG is not empty
 then
   #sorts the tags and picks the latest
