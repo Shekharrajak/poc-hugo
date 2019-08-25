@@ -9,7 +9,6 @@ RUN apk add --no-cache bash
 RUN chmod +x .docker/scripts/install_hugo.sh
 RUN chmod +x .docker/scripts/build.sh
 RUN chmod +x .docker/scripts/deploy.sh
-RUN chmod +x .docker/scripts/set_env.sh
 
 RUN .docker/scripts/install_hugo.sh
 RUN .docker/scripts/build.sh

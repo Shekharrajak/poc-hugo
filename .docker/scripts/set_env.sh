@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# tried setting env while running dockerfile but not working. It is
+# not taking variable values during dockerfile execution
 export TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG}
 export TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
 export TRAVIS_TAG=${TRAVIS_TAG}
