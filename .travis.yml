@@ -4,5 +4,5 @@ services:
   - docker
 
 script:
-  - docker build -f Dockerfile -t poc-hugo
+  - docker build -t poc-hugo .
   - docker run poc-hugo
