@@ -5,4 +5,5 @@ services:
 
 script:
   - docker build -t poc-hugo .
+  - docker ps -a
   - docker run poc-hugo
