@@ -1,7 +1,7 @@
 FROM mysocialobservations/docker-tdewolff-minify
 ADD . ./app
 WORKDIR /app
-RUN chmod +x ./docker/scripts/install_hugo.sh
+CMD [pwd]
 CMD ["./docker/scripts/install_hugo.sh"]
 
 RUN hugo
