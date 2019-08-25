@@ -2,10 +2,10 @@
 
 npm install -g surge
 
-echo pwd
-echo "Deploy script is about to run set_env script."
-sh set_env.sh
-echo "Deploy script has just run set_env script."
+# echo $pwd
+# echo "Deploy script is about to run set_env script."
+# sh set_env.sh
+# echo "Deploy script has just run set_env script."
 
 echo ${TRAVIS_REPO_SLUG}
 

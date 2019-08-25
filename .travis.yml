@@ -9,10 +9,17 @@ before_script:
   - chmod +x .docker/scripts/install_hugo.sh
   - chmod +x .docker/scripts/build.sh
   - chmod +x .docker/scripts/deploy.sh
-  - chmod +x .docker/scripts/set_env.sh
   - echo ${TRAVIS_REPO_SLUG}
 
 script:
   - docker build -t poc-hugo -f Dockerfile .
   - docker ps -a
-  - docker run poc-hugo
+  - docker run -e TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} \
+    -e TRAVIS_REPO_SLUG=${TRAVIS_REPO_SLUG} \
+    -e TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST} \
+    -e TRAVIS_TAG=${TRAVIS_TAG} \
+    -e TRAVIS_BRANCH=${TRAVIS_BRANCH} \
+    -e GITHUB_API_TOKEN=${GITHUB_API_TOKEN} \
+    -e SURGE_TOKEN=${SURGE_TOKEN} \
+    -e SURGE_LOGIN=${SURGE_LOGIN} \
+    poc-hugo
