@@ -2,6 +2,8 @@
 
 npm install -g surge
 
+# trying setting env while script run but it is not taking travis
+# env variables
 # echo $pwd
 # echo "Deploy script is about to run set_env script."
 # sh set_env.sh

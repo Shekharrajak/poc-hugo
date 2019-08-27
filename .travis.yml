@@ -11,6 +11,7 @@ before_script:
   - chmod +x .docker/scripts/deploy.sh
   - echo ${TRAVIS_REPO_SLUG}
 
+# find better way for passing multiple env in docker run
 script:
   - docker build -t poc-hugo -f Dockerfile .
   - docker ps -a
