@@ -8,3 +8,13 @@
 - Open new PR with some changes and you will be able to see it in deployed version (a bot will comment the URL in PR itself after the completion of the CI/CD job).
 
 Test PR: https://github.com/Shekharrajak/poc-hugo/pull/2
+
+
+## Want to try it yourself ?
+
+- clone the repo
+- install hugo 
+- create new branch and `hugo new posts/your-post-title.md`
+- open PR
+- You will find a surge deployed URL for the PR and your post will be visible.
+
