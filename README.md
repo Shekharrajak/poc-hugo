@@ -7,7 +7,7 @@
 
 - Open new PR with some changes and you will be able to see it in deployed version (a bot will comment the URL in PR itself after the completion of the CI/CD job).
 
-Test PR: https://github.com/Shekharrajak/poc-hugo/pull/2
+Test PR: https://github.com/Shekharrajak/poc-hugo/pull/4
 
 
 ## Want to try it yourself ?
